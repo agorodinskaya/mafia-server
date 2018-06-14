@@ -1,0 +1,100 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ @import 'bootstrap';
+
+#messages {
+  max-height: 400px;
+  overflow-y: scroll;
+  border: 1px solid black;
+  // display: inline-block;
+}
+
+#publicChannel {
+  width: 45vw;
+}
+
+#privateChannel {
+  max-height: 400px;
+  overflow-y: scroll;
+  width: 45%;
+  // right:0;
+  // width: 45vw;
+  border: 1px solid red;
+  display: inline-block;
+}
+
+ .signIn {
+   width: 300px;
+   margin: 0 auto;
+   text-align: center;
+  }
+ .nav-user{
+    justify-content: flex-end;
+    padding: 5px 5px ;
+  }
+
+ .userForm{
+   text-align: center;
+   width: 700px;
+   margin: 0 auto;
+ }
+
+ .cancelButton {
+   float: right;
+   margin-right: 30vw;
+ }
+
+ li {
+   list-style-type: none;
+ }
+
+ .roomColumns {
+   border: 1px solid black;
+   margin: 10px;
+   height: 200px;
+ }
+
+ .playersDisplay {
+   float:right;
+   font-size: 20px;
+   font-style: italic;
+   font-weight: bold;
+   text-align: right;
+ }
+
+ .playersDisplayTitle {
+   font-size: 15px!important;
+ }
+
+ .roomName {
+   font-size: 30px;
+ }
+
+ .playButton {
+   float:right;
+   position: absolute;
+   right: 20px;
+   bottom: 20px;
+ }
+
+ .col-sm-1 {
+   text-align: center;
+ }
+
+ .customButton {
+   width: 130px;
+ }

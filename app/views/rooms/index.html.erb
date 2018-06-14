@@ -1,0 +1,38 @@
+<script>
+$('#joinGame').click(function(){
+  console.log('joined game');
+  // App.room_messages.send_message({
+  //   event_type: 'start_game'
+  //
+  //  });
+  return false;
+ });
+</script>
+
+
+<h1>Rooms:</h1>
+
+<% if @current_user.present? %>
+<%= link_to 'Create new', new_room_path( @room ), class: "btn btn-success btn-block btn-sm buttonFont customButton" %>
+<% end %>
+<br>
+<div class="container">
+  <div class="row">
+    <% @rooms.each do |e|%>
+    <div class="col-lg-5 roomColumns">
+      <span class: "roomName">
+        <%= e.name %>
+      </span>
+       <div class="playersDisplay">
+         <div class="playersDisplayTitle">Players Count</div>
+         <%= e.users.length %>
+       </div>
+         <div class = "playButton">
+           <%= link_to "Enter Room", room_path(e.id), class: "btn btn-success btn-block btn-sm buttonFont", id: "joinGame"%>
+         </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<br>
+<br>
