@@ -19168,3 +19168,93 @@ Processing by PagesController#home as HTML
 Completed 200 OK in 3237ms (Views: 3226.5ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/login" for 127.0.0.1 at 2018-06-14 15:23:29 +1000
+Processing by SessionController#new as HTML
+  Rendering session/new.html.erb within layouts/application
+  Rendered session/new.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 127ms (Views: 123.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-06-14 15:23:38 +1000
+Processing by SessionController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1LPnrFfIssvP6vCGMSuPoZ1bQG/OBYBxQKved+AQ1SCAd9r9ydkNCtWcLtWmxfFzAGhnbbcHlXAS/mCZTrj5Ng==", "name"=>"Alex", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Alex"], ["LIMIT", 1]]
+  ↳ app/controllers/session_controller.rb:6
+Redirected to http://localhost:3000/rooms
+Completed 302 Found in 105ms (ActiveRecord: 11.7ms)
+
+
+Started GET "/rooms" for 127.0.0.1 at 2018-06-14 15:23:38 +1000
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.9ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms"[0m
+  ↳ app/views/rooms/index.html.erb:21
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."room_id" = $1[0m  [["room_id", 38]]
+  ↳ app/views/rooms/index.html.erb:28
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."room_id" = $1[0m  [["room_id", 39]]
+  ↳ app/views/rooms/index.html.erb:28
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."room_id" = $1[0m  [["room_id", 40]]
+  ↳ app/views/rooms/index.html.erb:28
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."room_id" = $1[0m  [["room_id", 41]]
+  ↳ app/views/rooms/index.html.erb:28
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."room_id" = $1[0m  [["room_id", 42]]
+  ↳ app/views/rooms/index.html.erb:28
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."room_id" = $1[0m  [["room_id", 37]]
+  ↳ app/views/rooms/index.html.erb:28
+  Rendered rooms/index.html.erb within layouts/application (37.8ms)
+Completed 200 OK in 131ms (Views: 110.0ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/rooms/38" for 127.0.0.1 at 2018-06-14 15:23:41 +1000
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"38"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:16
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:228
+  [1m[36mCACHE Room Load (0.0ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = $1 LIMIT $2[0m  [["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:28
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/rooms_controller.rb:32
+  [1m[36mUser Update (1.1ms)[0m  [1m[33mUPDATE "users" SET "room_id" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["room_id", 38], ["updated_at", "2018-06-14 05:23:41.247160"], ["id", 47]]
+  ↳ app/controllers/rooms_controller.rb:32
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/rooms_controller.rb:32
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/rooms_controller.rb:33
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/rooms_controller.rb:33
+[ActionCable] Broadcasting to room_38_messages: {:action=>"PERSON_JOINED", :name=>"Alex", :id=>47}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."room_id" = $1[0m  [["room_id", 38]]
+  ↳ app/controllers/rooms_controller.rb:41
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/rooms_controller.rb:42
+  [1m[36mRoom Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "rooms" WHERE "rooms"."name" = $1 AND "rooms"."id" != $2 LIMIT $3[0m  [["name", "WigglesTown"], ["id", 38], ["LIMIT", 1]]
+  ↳ app/controllers/rooms_controller.rb:42
+  [1m[36mRoom Update (0.6ms)[0m  [1m[33mUPDATE "rooms" SET "gamestate" = $1, "updated_at" = $2 WHERE "rooms"."id" = $3[0m  [["gamestate", "\"---\\n:canStart: true\\n:hasStarted: false\\n\""], ["updated_at", "2018-06-14 05:23:41.276203"], ["id", 38]]
+  ↳ app/controllers/rooms_controller.rb:42
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/rooms_controller.rb:42
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mMessage Load (0.5ms)[0m  [1m[34mSELECT "messages".* FROM "messages" WHERE "messages"."room_id" = $1[0m  [["room_id", 38]]
+  ↳ app/views/rooms/show.html.erb:160
+  Rendered messages/_message_form.html.erb (6.8ms)
+  [1m[36mMafium Load (0.5ms)[0m  [1m[34mSELECT "mafia".* FROM "mafia" WHERE "mafia"."room_id" = $1[0m  [["room_id", 38]]
+  ↳ app/views/rooms/show.html.erb:175
+  Rendered mafias/_mafia_form.html.erb (0.5ms)
+  Rendered rooms/show.html.erb within layouts/application (26.8ms)
+Completed 200 OK in 191ms (Views: 102.6ms | ActiveRecord: 32.8ms)
+
+
+Started GET "/cable" for 127.0.0.1 at 2018-06-14 15:23:41 +1000
+Started GET "/cable/" [WebSocket] for 127.0.0.1 at 2018-06-14 15:23:41 +1000
+Successfully upgraded to WebSocket (REQUEST_METHOD: GET, HTTP_CONNECTION: Upgrade, HTTP_UPGRADE: websocket)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 47], ["LIMIT", 1]]
+  ↳ app/channels/application_cable/connection.rb:17
+Registered connection (Z2lkOi8vbWFmaWEtc2VydmVyL1VzZXIvNDc)
+MessagesChannel is transmitting the subscription confirmation
+MessagesChannel is streaming from room_38_messages
+MafiaMessagesChannel is transmitting the subscription confirmation
+MafiaMessagesChannel is streaming from mafia_room38_messages
